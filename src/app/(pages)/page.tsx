@@ -65,7 +65,7 @@ export default function Home() {
 
         <div
           id="code"
-          className="w-10/12 mx-auto mt-20 flex flex-col gap-10 justify-evenly"
+          className="w-10/12 mx-auto mt-4 lg:mt-20 flex flex-col justify-evenly"
         >
           <CodeBlocks
             position={"lg:flex-row"}

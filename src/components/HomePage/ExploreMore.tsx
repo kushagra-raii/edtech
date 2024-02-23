@@ -58,7 +58,7 @@ const ExploreMore = () => {
           );
         })}
       </div>
-      <div className=" block h-[1000px] lg:h-[200px]"></div>
+      <div className=" block h-[850px] lg:h-[200px]"></div>
 
       {/* Cards Group */}
       <div className="flex gap-10 justify-center absolute lg:bottom-[-155px] bottom-[-145px] flex-wrap ">
