@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useState } from "react";
-import { HomePageExplore } from "@/data/homePageExplore";
+import { HomePageExplore } from "@/../public/data/homePageExplore";
 import HighlightedText from "./HighlightedText";
 import CourseCard from "./CourseCard";
 const tabsName = [
