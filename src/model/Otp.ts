@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { sendMail } from "@/helper/sendMail";
+import { sendMail } from "@/utils/helper/sendMail";
 const OTPSchema = new mongoose.Schema({
     email:{
         type:String,
