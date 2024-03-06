@@ -1,3 +1,4 @@
+
 import CTAbutton from "@/components/HomePage/CTAbutton";
 import HighlightedText from "@/components/HomePage/HighlightedText";
 import Link from "next/link";
@@ -10,12 +11,13 @@ import TimelineSection from "@/components/HomePage/Timeline";
 import LearningLanguageSection from "@/components/HomePage/LearningLanguageSection";
 import InstructorSection from "@/components/HomePage/InstructorSection";
 export default function Home() {
+  
   return (
     <div>
       <div className=" bg-richblack-900 text-white ">
         <div id="hero" className=" w-10/12 mx-auto ">
           <div className="flex flex-col items-center gap-10">
-            <Link href="/signup">
+            <Link href="/auth/signup">
               <div className="group mx-auto mt-16 w-fit rounded-full bg-richblack-800 p-1 font-bold text-richblack-200 drop-shadow-[0_1.5px_rgba(255,255,255,0.25)] transition-all duration-200 hover:scale-95 hover:drop-shadow-none">
                 <div className="flex flex-row items-center gap-2 rounded-full px-10 py-[5px] transition-all duration-200 group-hover:bg-richblack-900">
                   <p>Become an Instructor</p>
@@ -39,13 +41,13 @@ export default function Home() {
               <CTAbutton
                 text="Learn More"
                 active={true}
-                linkTo="/signup"
+                linkTo="/auth/signup"
                 arrow={false}
               />
               <CTAbutton
                 text="Book a Demo"
                 active={false}
-                linkTo="/login"
+                linkTo="/auth/login"
                 arrow={false}
               />
             </div>
@@ -81,13 +83,13 @@ export default function Home() {
             }
             ctabtn1={{
               text: "Try it Yourself",
-              linkTo: "/signup",
+              linkTo: "/auth/signup",
               active: true,
               arrow: true,
             }}
             ctabtn2={{
               text: "Learn More",
-              linkTo: "/signup",
+              linkTo: "/auth/signup",
               active: false,
               arrow: false,
             }}
@@ -109,13 +111,13 @@ export default function Home() {
             }
             ctabtn1={{
               text: "Continue Lesson",
-              linkTo: "/signup",
+              linkTo: "/auth/signup",
               active: true,
               arrow: false,
             }}
             ctabtn2={{
               text: "Learn More",
-              linkTo: "/signup",
+              linkTo: "/auth/signup",
               active: false,
               arrow: false,
             }}
@@ -138,7 +140,7 @@ export default function Home() {
             <div className="flex flex-row gap-7 text-white lg:mt-8">
               <CTAbutton
                 active={true}
-                linkTo={"/signup"}
+                linkTo={"/auth/signup"}
                 text="Explore Full Catalog"
                 arrow={true}
               />
@@ -146,7 +148,7 @@ export default function Home() {
                 active={false}
                 text="Learn More"
                 arrow={false}
-                linkTo={"/login"}
+                linkTo={"/auth/login"}
               />
             </div>
           </div>
@@ -167,7 +169,7 @@ export default function Home() {
               </div>
               <CTAbutton
                 active={true}
-                linkTo={"/signup"}
+                linkTo={"/auth/signup"}
                 text="Learn More"
                 arrow={false}
               />

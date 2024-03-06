@@ -27,7 +27,7 @@ const InstructorSection = () => {
           <div className="w-fit">
             <CTAbutton
               active={true}
-              linkTo={"/signup"}
+              linkTo={"/auth/signup"}
               arrow={true}
               text={"Start Teaching Today"}
             />

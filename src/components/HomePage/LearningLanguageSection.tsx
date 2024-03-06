@@ -37,7 +37,7 @@ const LearningLanguageSection = () => {
       <div className="w-fit mx-auto lg:mb-20 mb-8 -mt-5">
         <CTAbutton
           active={true}
-          linkTo={"/signup"}
+          linkTo={"/auth/signup"}
           text="Learn More"
           arrow={false}
         />
