@@ -16,7 +16,6 @@ export async function POST(request: NextRequest) {
       password,
       confirmPassword,
       accountType,
-      contactNumber,
       otp,
     } = await request.json();
 
@@ -25,8 +24,7 @@ export async function POST(request: NextRequest) {
       !lastName ||
       !email ||
       !password ||
-      !confirmPassword ||
-      !contactNumber ||
+      !confirmPassword ||     
       !otp
     ) {
       return NextResponse.json({
@@ -74,7 +72,7 @@ export async function POST(request: NextRequest) {
       gender: null,
       dateOfBirth: null,
       about: null,
-      contactNumber: contactNumber,
+      contactNumber: null,
     });
     const newUser = await User.create({
       firstName,

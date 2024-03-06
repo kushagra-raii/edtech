@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
       lowerCaseAlphabets: false,
       specialChars: false,
     });
-
+    
     const result = await OTP.findOne({ otp: otp });
     while (result) {
       otp = otpGenerator.generate(6, {
@@ -36,17 +36,19 @@ export async function POST(request: NextRequest) {
       otp,
       email,
     });
-
-    return NextResponse.json({
+    
+     return NextResponse.json({
       success: true,
       status: 200,
       message: "OTP sent successfully",
     });
-  } catch (error) {
+    
+  } catch (error: any) {
     return NextResponse.json({
       success: false,
       status: 500,
-      message: "Internal Server Error",
+      message: "Internal Server Error while creating otp",
+      msg: error.message,
     });
   }
 }

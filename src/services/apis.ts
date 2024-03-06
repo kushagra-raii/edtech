@@ -1,6 +1,6 @@
 
 export const authEndpoints = {
-  SENDOTP_API: "/api/auth/sendotp",
+  SENDOTP_API: "/api/auth/otp",
   SIGNUP_API: "/api/auth/signup",
   // LOGIN_API: "/api/auth/login",
   // RESETPASSTOKEN_API: "/api/auth/reset-password-token",

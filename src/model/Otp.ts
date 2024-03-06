@@ -1,5 +1,7 @@
+import { mailSender } from "@/utils/helper/sendMail";
+import { otpTemplate } from "@/utils/mailTemplate/userVerification";
 import mongoose from "mongoose";
-import { sendMail } from "@/utils/helper/sendMail";
+
 const OTPSchema = new mongoose.Schema({
     email:{
         type:String,
@@ -17,13 +19,24 @@ const OTPSchema = new mongoose.Schema({
     }
 })
 
+
+async function sendVerificationEmail(email:string,otp:string){
+    try {
+        const mailResponse = await mailSender(email,"Verification Email",otpTemplate(otp))
+    } catch (error) {
+        console.log("Error occurred while sending email: ", error);
+		throw error;
+    }
+
+}
+
 OTPSchema.pre('save',async function(next){
     const mailType = "verification";
     if (this.isNew) {
-		await sendMail({ email: this.email!, content: this.otp, mailType });
+		await sendVerificationEmail(this.email!, this.otp);
 	}
 	next();
 })
 
-const OTP = mongoose.model('OTP', OTPSchema);
+const OTP =  mongoose.models.OTP || mongoose.model('OTP', OTPSchema);
 export default OTP;

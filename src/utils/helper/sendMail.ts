@@ -1,32 +1,27 @@
 import nodemailer from "nodemailer";
-import { otpTemplate } from "@/utils/mailTemplate/userVerification";
-interface Args {
-  email: string;
-  content: string;
-  mailType: string;
-}
-
-export async function sendMail({ email, content, mailType }: Args) {
-  try {
-    var transporter = nodemailer.createTransport({
-      host: process.env.MAIL_HOST,
-      port: 2525,
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    });
+export const mailSender = async (email: string, title: string , body: any) => {
+	try {
+		var transport = nodemailer.createTransport({
+			host: "sandbox.smtp.mailtrap.io",
+			port: 2525,
+			auth: {
+			  user: "e7a5de1b147ba9",
+			  pass: "c224c85b5c16d0"
+			}
+		  });
   
-    const mailOptions = {
-      from: process.env.MAIL,
-      to: email,
-      html: mailType === "otp" ? otpTemplate(content) : "",
-    }
-  
-    const mailResponse = await transporter.sendMail(mailOptions);
-    return mailResponse;
-  } catch (error: any) {
-    throw new Error(error.message);
+	  let info = await transport.sendMail({
+		from: "kushagrarai83@gmail.com", // sender address
+		to: `${email}`, // list of receivers
+		subject: `${title}`, // Subject line
+		html: `${body}`, // html body
+	  })
+	  console.log(info.response)
+	  return info
+	} catch (error: any) {
+	  console.log(error.message)
+	  return error.message
+	}
   }
 
-}
+
